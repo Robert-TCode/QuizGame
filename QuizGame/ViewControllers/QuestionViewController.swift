@@ -5,8 +5,8 @@ import UIKit
 
 class QuestionViewController: UIViewController {
 
-    private var question = ""
-    private var options = [String]()
+    private(set) var question = ""
+    private(set) var options = [String]()
     private var selection: (([String]) -> Void)? = nil
 
     private var cellId = "CellID"

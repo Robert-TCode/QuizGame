@@ -37,7 +37,7 @@ class NavigationControllerRouterTests: XCTestCase {
             callbackWasFired = true
         })
 
-        factoryStub.answerCallbacks[question]!("answer")
+        factoryStub.answerCallbacks[question]!(["answer"])
         XCTAssertTrue(callbackWasFired)
     }
 
@@ -51,18 +51,18 @@ class NavigationControllerRouterTests: XCTestCase {
 
     class ViewControllerFactoryStub: ViewControllerFactory {
         var stubbedQuestions = Dictionary<Question<String>, UIViewController>()
-        var answerCallbacks = Dictionary<Question<String>, (String) -> Void>()
+        var answerCallbacks = Dictionary<Question<String>, ([String]) -> Void>()
 
         func stub(question: Question<String>, with viewController: UIViewController) {
             stubbedQuestions[question] = viewController
         }
 
-        func resultViewController(for result: Result<Question<String>, String>) -> UIViewController {
+        func resultViewController(for result: Result<Question<String>, [String]>) -> UIViewController {
             // Result initializers are inaccessible because it is in QEngine module
             return UIViewController()
         }
 
-        func questionViewController(for question: Question<String>, answerCallback: @escaping (String) -> Void) -> UIViewController {
+        func questionViewController(for question: Question<String>, answerCallback: @escaping ([String]) -> Void) -> UIViewController {
             self.answerCallbacks[question] = answerCallback
             return stubbedQuestions[question] ?? UIViewController()
         }

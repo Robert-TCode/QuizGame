@@ -3,7 +3,7 @@
 import XCTest
 @testable import QuizGame
 
-class QuizGameTests: XCTestCase {
+class QuestionViewControllerTests: XCTestCase {
 
     func test_viewDidLoad_renderQuestionHeaderText() {
         XCTAssertEqual(makeSUT(question: "Q1").headerLabel.text, "Q1")
@@ -79,6 +79,16 @@ class QuizGameTests: XCTestCase {
     func makeSUT(question: String = "",
                  options: [String] = [],
                  selection: @escaping ([String]) -> Void = {_ in }) -> QuestionViewController {
+        // This is an example of integration testing, where we are using the Factory to create the QuestionViewController
+        // The disadvantage of this approach is that we could need to have check and implement multiple factories in the future
+        // The advantage is that we're testing the integration of the system at the same time
+
+//        let questionType = Question.singleAnswer(question)
+//        let factory = iOSViewControllerFactory(options: [questionType: options])
+//        return factory.questionViewController(for: questionType, answerCallback: selection) as! QuestionViewController
+
+        // This is an example of the unit tests, where we are using directly the object we will be testing
+        // The advantage of this is that it has single responsibility and keeps the tests for each factory separated, outside of this file
         return QuestionViewController(question: question, options: options, selection: selection)
     }
 }

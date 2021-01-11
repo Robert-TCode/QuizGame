@@ -11,13 +11,16 @@
 		AA2EA8DB25AB392700A0DCCD /* QEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA2EA8D925AB392700A0DCCD /* QEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA2EA8DF25AB9EF600A0DCCD /* QuestionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA8DE25AB9EF600A0DCCD /* QuestionTests.swift */; };
 		AA2EA8E225ABA33D00A0DCCD /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA8E125ABA33D00A0DCCD /* Question.swift */; };
+		AA2EA8FA25AD0A5D00A0DCCD /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA8F925AD0A5D00A0DCCD /* ViewControllerFactory.swift */; };
+		AA2EA8FD25AD0ACF00A0DCCD /* iOSViewControllerFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA8FC25AD0ACF00A0DCCD /* iOSViewControllerFactoryTests.swift */; };
+		AA2EA90125AD0BE200A0DCCD /* iOSViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA90025AD0BE200A0DCCD /* iOSViewControllerFactory.swift */; };
 		AA7D9DAB25AA885800574B0C /* NavigationControllerRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7D9DAA25AA885800574B0C /* NavigationControllerRouterTests.swift */; };
 		AA7D9DB525AB2E7300574B0C /* NavigationControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7D9DB425AB2E7300574B0C /* NavigationControllerRouter.swift */; };
 		AAB8A9A8259C030600A0E20E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB8A9A7259C030600A0E20E /* AppDelegate.swift */; };
 		AAB8A9AA259C030600A0E20E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB8A9A9259C030600A0E20E /* SceneDelegate.swift */; };
 		AAB8A9B1259C030800A0E20E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAB8A9B0259C030800A0E20E /* Assets.xcassets */; };
 		AAB8A9B4259C030800A0E20E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB8A9B2259C030800A0E20E /* LaunchScreen.storyboard */; };
-		AAB8A9BF259C030800A0E20E /* QuizGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB8A9BE259C030800A0E20E /* QuizGameTests.swift */; };
+		AAB8A9BF259C030800A0E20E /* QuestionViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB8A9BE259C030800A0E20E /* QuestionViewControllerTests.swift */; };
 		AAB8A9E4259C043000A0E20E /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB8A9E3259C043000A0E20E /* QuestionViewController.swift */; };
 		AAB8A9E9259D22E800A0E20E /* ResultsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB8A9E8259D22E800A0E20E /* ResultsViewControllerTests.swift */; };
 		AAB8A9EE259D238A00A0E20E /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB8A9ED259D238A00A0E20E /* ResultsViewController.swift */; };
@@ -56,6 +59,9 @@
 		AA2EA8D925AB392700A0DCCD /* QEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2EA8DE25AB9EF600A0DCCD /* QuestionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTests.swift; sourceTree = "<group>"; };
 		AA2EA8E125ABA33D00A0DCCD /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		AA2EA8F925AD0A5D00A0DCCD /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		AA2EA8FC25AD0ACF00A0DCCD /* iOSViewControllerFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSViewControllerFactoryTests.swift; sourceTree = "<group>"; };
+		AA2EA90025AD0BE200A0DCCD /* iOSViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSViewControllerFactory.swift; sourceTree = "<group>"; };
 		AA7D9DAA25AA885800574B0C /* NavigationControllerRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerRouterTests.swift; sourceTree = "<group>"; };
 		AA7D9DB425AB2E7300574B0C /* NavigationControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerRouter.swift; sourceTree = "<group>"; };
 		AAB8A9A4259C030600A0E20E /* QuizGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,7 +71,7 @@
 		AAB8A9B3259C030800A0E20E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AAB8A9B5259C030800A0E20E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB8A9BA259C030800A0E20E /* QuizGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAB8A9BE259C030800A0E20E /* QuizGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizGameTests.swift; sourceTree = "<group>"; };
+		AAB8A9BE259C030800A0E20E /* QuestionViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewControllerTests.swift; sourceTree = "<group>"; };
 		AAB8A9C0259C030800A0E20E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB8A9E3259C043000A0E20E /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		AAB8A9E8259D22E800A0E20E /* ResultsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewControllerTests.swift; sourceTree = "<group>"; };
@@ -178,6 +184,8 @@
 				AA7D9DB425AB2E7300574B0C /* NavigationControllerRouter.swift */,
 				AA2EA8F225ABB43700A0DCCD /* Cells */,
 				AAB8A9FF259D3A0500A0E20E /* PresentableAnswer.swift */,
+				AA2EA90025AD0BE200A0DCCD /* iOSViewControllerFactory.swift */,
+				AA2EA8F925AD0A5D00A0DCCD /* ViewControllerFactory.swift */,
 				AA2EA8F025ABB42C00A0DCCD /* Extensions */,
 			);
 			path = QuizGame;
@@ -186,9 +194,10 @@
 		AAB8A9BD259C030800A0E20E /* QuizGameTests */ = {
 			isa = PBXGroup;
 			children = (
-				AAB8A9BE259C030800A0E20E /* QuizGameTests.swift */,
+				AAB8A9BE259C030800A0E20E /* QuestionViewControllerTests.swift */,
 				AA7D9DAA25AA885800574B0C /* NavigationControllerRouterTests.swift */,
 				AA2EA8DE25AB9EF600A0DCCD /* QuestionTests.swift */,
+				AA2EA8FC25AD0ACF00A0DCCD /* iOSViewControllerFactoryTests.swift */,
 				AAB8A9E8259D22E800A0E20E /* ResultsViewControllerTests.swift */,
 				AAB8A9F2259D2C2700A0E20E /* TableViewHelpers.swift */,
 				AAB8A9C0259C030800A0E20E /* Info.plist */,
@@ -303,9 +312,11 @@
 				AAB8AA00259D3A0500A0E20E /* PresentableAnswer.swift in Sources */,
 				AA2EA8E225ABA33D00A0DCCD /* Question.swift in Sources */,
 				AAB8AA0A259D3A3A00A0E20E /* WrongAnswerCell.swift in Sources */,
+				AA2EA90125AD0BE200A0DCCD /* iOSViewControllerFactory.swift in Sources */,
 				AA7D9DB525AB2E7300574B0C /* NavigationControllerRouter.swift in Sources */,
 				AAB8A9E4259C043000A0E20E /* QuestionViewController.swift in Sources */,
 				AAB8A9EE259D238A00A0E20E /* ResultsViewController.swift in Sources */,
+				AA2EA8FA25AD0A5D00A0DCCD /* ViewControllerFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,7 +326,8 @@
 			files = (
 				AA2EA8DF25AB9EF600A0DCCD /* QuestionTests.swift in Sources */,
 				AA7D9DAB25AA885800574B0C /* NavigationControllerRouterTests.swift in Sources */,
-				AAB8A9BF259C030800A0E20E /* QuizGameTests.swift in Sources */,
+				AAB8A9BF259C030800A0E20E /* QuestionViewControllerTests.swift in Sources */,
+				AA2EA8FD25AD0ACF00A0DCCD /* iOSViewControllerFactoryTests.swift in Sources */,
 				AAB8A9F3259D2C2700A0E20E /* TableViewHelpers.swift in Sources */,
 				AAB8A9E9259D22E800A0E20E /* ResultsViewControllerTests.swift in Sources */,
 			);
