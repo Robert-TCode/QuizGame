@@ -1,6 +1,7 @@
 //  Created by TCode on 13/01/2021.
 
 import XCTest
+import QEngine
 @testable import QuizGame
 
 class QuestionPresenterTests: XCTestCase {

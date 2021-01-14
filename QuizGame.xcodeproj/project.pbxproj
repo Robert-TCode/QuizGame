@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		AA2EA8DA25AB392700A0DCCD /* QEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2EA8D925AB392700A0DCCD /* QEngine.framework */; };
 		AA2EA8DB25AB392700A0DCCD /* QEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA2EA8D925AB392700A0DCCD /* QEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AA2EA8DF25AB9EF600A0DCCD /* QuestionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA8DE25AB9EF600A0DCCD /* QuestionTests.swift */; };
-		AA2EA8E225ABA33D00A0DCCD /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA8E125ABA33D00A0DCCD /* Question.swift */; };
 		AA2EA8FA25AD0A5D00A0DCCD /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA8F925AD0A5D00A0DCCD /* ViewControllerFactory.swift */; };
 		AA2EA8FD25AD0ACF00A0DCCD /* iOSViewControllerFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA8FC25AD0ACF00A0DCCD /* iOSViewControllerFactoryTests.swift */; };
 		AA2EA90125AD0BE200A0DCCD /* iOSViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA90025AD0BE200A0DCCD /* iOSViewControllerFactory.swift */; };
@@ -61,8 +59,6 @@
 
 /* Begin PBXFileReference section */
 		AA2EA8D925AB392700A0DCCD /* QEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA2EA8DE25AB9EF600A0DCCD /* QuestionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTests.swift; sourceTree = "<group>"; };
-		AA2EA8E125ABA33D00A0DCCD /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		AA2EA8F925AD0A5D00A0DCCD /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		AA2EA8FC25AD0ACF00A0DCCD /* iOSViewControllerFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSViewControllerFactoryTests.swift; sourceTree = "<group>"; };
 		AA2EA90025AD0BE200A0DCCD /* iOSViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -188,7 +184,6 @@
 				AA2EA8F625ABB45A00A0DCCD /* Resources */,
 				AAB8A9B5259C030800A0E20E /* Info.plist */,
 				AA2EA8F425ABB44200A0DCCD /* ViewControllers */,
-				AA2EA8E125ABA33D00A0DCCD /* Question.swift */,
 				AA7D9DB425AB2E7300574B0C /* NavigationControllerRouter.swift */,
 				AA2EA8F225ABB43700A0DCCD /* Cells */,
 				AAB8A9FF259D3A0500A0E20E /* PresentableAnswer.swift */,
@@ -208,7 +203,6 @@
 				AA7D9DAA25AA885800574B0C /* NavigationControllerRouterTests.swift */,
 				AA2EA90425AE64ED00A0DCCD /* ResultsPresenterTests.swift */,
 				AA2EA90A25AF940D00A0DCCD /* QuestionPresenterTests.swift */,
-				AA2EA8DE25AB9EF600A0DCCD /* QuestionTests.swift */,
 				AA2EA8FC25AD0ACF00A0DCCD /* iOSViewControllerFactoryTests.swift */,
 				AAB8A9E8259D22E800A0E20E /* ResultsViewControllerTests.swift */,
 				AAB8A9F2259D2C2700A0E20E /* TableViewHelpers.swift */,
@@ -323,7 +317,6 @@
 				AAB8AA05259D3A1F00A0E20E /* CorrectAnswerCell.swift in Sources */,
 				AAB8A9AA259C030600A0E20E /* SceneDelegate.swift in Sources */,
 				AAB8AA00259D3A0500A0E20E /* PresentableAnswer.swift in Sources */,
-				AA2EA8E225ABA33D00A0DCCD /* Question.swift in Sources */,
 				AAB8AA0A259D3A3A00A0E20E /* WrongAnswerCell.swift in Sources */,
 				AA2EA90E25AF94FC00A0DCCD /* QuestionPresenter.swift in Sources */,
 				AA2EA90125AD0BE200A0DCCD /* iOSViewControllerFactory.swift in Sources */,
@@ -338,7 +331,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA2EA8DF25AB9EF600A0DCCD /* QuestionTests.swift in Sources */,
 				AA7D9DAB25AA885800574B0C /* NavigationControllerRouterTests.swift in Sources */,
 				AA2EA90B25AF940D00A0DCCD /* QuestionPresenterTests.swift in Sources */,
 				AAB8A9BF259C030800A0E20E /* QuestionViewControllerTests.swift in Sources */,

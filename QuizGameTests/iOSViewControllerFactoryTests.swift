@@ -68,7 +68,7 @@ class iOSViewControllerFactoryTests: XCTestCase {
 
         XCTAssertEqual(results.controller.answers.count, results.presenter.presentableAnswers.count)
     }
-    
+     
     // MARK: Helpers
 
     private func makeSUT(options: Dictionary<Question<String>, [String]> = [:], correctAnswers: Dictionary<Question<String>, [String]> = [:]) -> iOSViewControllerFactory {
