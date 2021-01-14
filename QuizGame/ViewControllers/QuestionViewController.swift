@@ -36,6 +36,8 @@ class QuestionViewController: UIViewController {
         NSLayoutConstraint.activate([
             headerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             headerLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 12),
+            headerLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            headerLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             tableView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 12),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -46,6 +48,8 @@ class QuestionViewController: UIViewController {
     lazy var headerLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.textAlignment = .center
         label.text = question
         return label
     }()

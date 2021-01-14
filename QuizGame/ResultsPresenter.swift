@@ -36,6 +36,6 @@ struct ResultsPresenter {
     }
 
     private func formattedWrongAnswer(_ userAnswer: [String], _ correctAnswer: [String]) -> String? {
-        correctAnswer == userAnswer ? nil : userAnswer.joined(separator: ", ")
+        userAnswer.containsSameElements(as: correctAnswer) ? nil : userAnswer.joined(separator: ", ")
     }
 }
