@@ -20,11 +20,17 @@ class QuestionViewControllerTests: XCTestCase {
         XCTAssertEqual(makeSUT(options: ["Option 1", "Option 2"]).tableView.title(at: 1), "Option 2")
     }
 
+    func test_viewDidLoad_singleSelection_ConfiguresTableView() {
+        XCTAssertFalse(makeSUT(options: ["Option 1", "Option 2"]).isMultipleSelection)
+    }
+
+    func test_viewDidLoad_multipleSelection_ConfiguresTableView() {
+        XCTAssertTrue(makeSUT(options: ["Option 1", "Option 2"], isMultipleSelection: true).isMultipleSelection)
+    }
+
     func test_singleSelection_notifiesDelegateWhenSelectionChanges() {
         var receivedAnswer = [""]
-        let sut = makeSUT(options: ["A1", "A2"]) {
-            receivedAnswer = $0
-        }
+        let sut = makeSUT(options: ["A1", "A2"], isMultipleSelection: false) { receivedAnswer = $0 }
 
         sut.tableView.selectRow(at: 0)
         XCTAssertEqual(receivedAnswer, ["A1"])
@@ -35,9 +41,7 @@ class QuestionViewControllerTests: XCTestCase {
 
     func test_singleSelection_doesNotNotifiesDelegateWithEmptySelection() {
         var callBackCount = 0
-        let sut = makeSUT(options: ["A1", "A2"]) { _ in
-            callBackCount += 1
-        }
+        let sut = makeSUT(options: ["A1", "A2"], isMultipleSelection: false) { _ in  callBackCount += 1 }
 
         sut.tableView.selectRow(at: 0)
         XCTAssertEqual(callBackCount, 1)
@@ -48,10 +52,7 @@ class QuestionViewControllerTests: XCTestCase {
 
     func test_multipleSelection_notifiesDelegateSelection() {
         var receivedAnswer = [""]
-        let sut = makeSUT(options: ["A1", "A2"]) {
-            receivedAnswer = $0
-        }
-        sut.tableView.allowsMultipleSelection = true
+        let sut = makeSUT(options: ["A1", "A2"], isMultipleSelection: true) { receivedAnswer = $0 }
 
         sut.tableView.selectRow(at: 0)
         XCTAssertEqual(receivedAnswer, ["A1"])
@@ -62,10 +63,7 @@ class QuestionViewControllerTests: XCTestCase {
 
     func test_multipleSelectionsEnabled_notifiesDelegateDeselection() {
         var receivedAnswer = [""]
-        let sut = makeSUT(options: ["A1", "A2"]) {
-            receivedAnswer = $0
-        }
-        sut.tableView.allowsMultipleSelection = true
+        let sut = makeSUT(options: ["A1", "A2"], isMultipleSelection: true) { receivedAnswer = $0 }
 
         sut.tableView.selectRow(at: 0)
         XCTAssertEqual(receivedAnswer, ["A1"])
@@ -78,6 +76,7 @@ class QuestionViewControllerTests: XCTestCase {
 
     func makeSUT(question: String = "",
                  options: [String] = [],
+                 isMultipleSelection: Bool = false,
                  selection: @escaping ([String]) -> Void = {_ in }) -> QuestionViewController {
         // This is an example of integration testing, where we are using the Factory to create the QuestionViewController
         // The disadvantage of this approach is that we could need to have check and implement multiple factories in the future
@@ -89,6 +88,6 @@ class QuestionViewControllerTests: XCTestCase {
 
         // This is an example of the unit tests, where we are using directly the object we will be testing
         // The advantage of this is that it has single responsibility and keeps the tests for each factory separated, outside of this file
-        return QuestionViewController(question: question, options: options, selection: selection)
+        return QuestionViewController(question: question, options: options, isMultipleSelection: isMultipleSelection, selection: selection)
     }
 }

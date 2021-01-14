@@ -4,23 +4,46 @@ import UIKit
 import QEngine
 
 class iOSViewControllerFactory: ViewControllerFactory {
-
+    private let questions: [Question<String>]
     private let options: Dictionary<Question<String>, [String]>
+    private let correctAnswers: Dictionary<Question<String>, [String]>
 
-    init(options: [Question<String>: [String]]) {
+    init(questions: [Question<String>], options: Dictionary<Question<String>, [String]>, correctAnswers: Dictionary<Question<String>, [String]>) {
+        self.questions = questions
         self.options = options
+        self.correctAnswers = correctAnswers
     }
 
     func questionViewController(for question: Question<String>, answerCallback: @escaping ([String]) -> Void) -> UIViewController {
+        guard let options = options[question] else {
+            fatalError("Couldn't find options for question: \(question)")
+        }
+        return questionViewController(for: question, answerCallback: answerCallback, options: options)
+    }
+
+    private func questionViewController(for question: Question<String>, answerCallback: @escaping ([String]) -> Void, options: [String]) -> UIViewController {
+        
         switch question {
         case .singleAnswer(let value):
-            return QuestionViewController(question: value, options: options[question] ?? [], selection: answerCallback)
-//        case.multipleAnswer(let value): TODO
-         default: return UIViewController()
+            return questionViewController(for: question, value: value, isMultipleSelection: false, answerCallback: answerCallback, options: options)
+
+        case .multipleAnswer(let value):
+            let controller = questionViewController(for: question, value: value, isMultipleSelection: true, answerCallback: answerCallback, options: options)
+            controller.tableView.allowsMultipleSelection = true
+
+            return controller
         }
     }
 
+    private func questionViewController(for question: Question<String>, value: String, isMultipleSelection: Bool, answerCallback: @escaping ([String]) -> Void, options: [String]) -> QuestionViewController {
+        let preseter = QuestionPresenter(questions: questions, currentQuestion: question)
+        let controller = QuestionViewController(question: value, options: options, isMultipleSelection: isMultipleSelection, selection: answerCallback)
+        controller.title = preseter.title
+        return controller
+    }
+
     func resultViewController(for result: Result<Question<String>, [String]>) -> UIViewController {
-        return UIViewController()
+        let presenter = ResultsPresenter(result: result, questions: questions, correctAnswers: correctAnswers)
+        return ResultsViewController(summary: presenter.summary, answers: presenter.presentableAnswers)
     }
 }

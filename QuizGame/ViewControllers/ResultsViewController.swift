@@ -5,8 +5,8 @@ import UIKit
 
 class ResultsViewController: UIViewController {
 
-    private var summary = ""
-    private var answers = [PresentableAnswer]()
+    private(set) var summary = ""
+    private(set)  var answers = [PresentableAnswer]()
 
     private let correctAnswerCellId = "correctAnswerCellId"
     private let wrongAnswerCellId = "wrongAnswerCellId"

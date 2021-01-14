@@ -7,17 +7,29 @@ class QuestionViewController: UIViewController {
 
     private(set) var question = ""
     private(set) var options = [String]()
-    private var selection: (([String]) -> Void)? = nil
+    private(set) var isMultipleSelection = false
 
+    private var selection: (([String]) -> Void)? = nil
     private var cellId = "CellID"
 
-    convenience init(question: String, options: [String], selection: @escaping ([String]) -> Void) {
+    convenience init(question: String, options: [String], isMultipleSelection: Bool, selection: @escaping ([String]) -> Void) {
         self.init()
         self.question = question
         self.options = options
+        self.isMultipleSelection = isMultipleSelection
         self.selection = selection
 
+        setupSubviews()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
         view.backgroundColor = .white
+        tableView.allowsMultipleSelection = isMultipleSelection
+    }
+
+    private func setupSubviews() {
         view.addSubview(headerLabel)
         view.addSubview(tableView)
 
