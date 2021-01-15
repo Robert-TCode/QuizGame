@@ -120,18 +120,18 @@ class NavigationControllerRouterTests: XCTestCase {
 
     class ViewControllerFactoryStub: ViewControllerFactory {
         var stubbedQuestions = Dictionary<Question<String>, UIViewController>()
-        var answerCallbacks = Dictionary<Question<String>, ([String]) -> Void>()
+        var answerCallbacks = Dictionary<Question<String>, (Set<String>) -> Void>()
 
         func stub(question: Question<String>, with viewController: UIViewController) {
             stubbedQuestions[question] = viewController
         }
 
-        func resultViewController(for result: Result<Question<String>, [String]>) -> UIViewController {
+        func resultViewController(for result: Result<Question<String>, Set<String>>) -> UIViewController {
             // Result initializers are i naccessible because it is in QEngine module
             return UIViewController()
         }
 
-        func questionViewController(for question: Question<String>, answerCallback: @escaping ([String]) -> Void) -> UIViewController {
+        func questionViewController(for question: Question<String>, answerCallback: @escaping (Set<String>) -> Void) -> UIViewController {
             self.answerCallbacks[question] = answerCallback
             return stubbedQuestions[question] ?? UIViewController()
         }

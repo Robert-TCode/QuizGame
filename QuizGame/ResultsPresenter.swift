@@ -3,9 +3,9 @@
 import QEngine
 
 struct ResultsPresenter {
-    let result: Result<Question<String>, [String]>
+    let result: Result<Question<String>, Set<String>>
     let questions: [Question<String>]
-    let correctAnswers: Dictionary<Question<String>, [String]>
+    let correctAnswers: Dictionary<Question<String>, Set<String>>
 
     var title: String {
         "Results"
@@ -22,11 +22,11 @@ struct ResultsPresenter {
                 fatalError("Couldn't find correct answer for question: \(question)")
             }
 
-            return presentableAnswer(question: question, userAnswer: userAnswer, correctAnswer: correctAnswer)
+            return presentableAnswer(question, userAnswer, correctAnswer )
         }
     }
 
-    private func presentableAnswer(question: Question<String>, userAnswer: [String], correctAnswer: [String]) -> PresentableAnswer {
+    private func presentableAnswer(_ question: Question<String>, _ userAnswer: Set<String>, _ correctAnswer: Set<String>) -> PresentableAnswer {
         switch question {
         case .singleAnswer(let value), .multipleAnswer(let value):
             return PresentableAnswer(question: value,
@@ -35,11 +35,11 @@ struct ResultsPresenter {
         }
     }
 
-    private func formattedCorrectAnswer(_ correctAnswer: [String]) -> String {
-        correctAnswer.joined(separator: ", ")
+    private func formattedCorrectAnswer(_ correctAnswer: Set<String>) -> String {
+        correctAnswer.sorted().joined(separator: ", ")
     }
 
-    private func formattedWrongAnswer(_ userAnswer: [String], _ correctAnswer: [String]) -> String? {
-        userAnswer.containsSameElements(as: correctAnswer) ? nil : userAnswer.joined(separator: ", ")
+    private func formattedWrongAnswer(_ userAnswer: Set<String>, _ correctAnswer: Set<String>) -> String? {
+        userAnswer == correctAnswer ? nil : userAnswer.sorted().joined(separator: ", ")
     }
 }

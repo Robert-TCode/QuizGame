@@ -6,7 +6,7 @@ import QEngine
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var game: Game<Question<String>, [String], NavigationControllerRouter>?
+    var game: Game<Question<String>, Set<String>, NavigationControllerRouter>?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         game = startGame(questions: database.questions, router: router, correctAnswers: database.correctAnswers)
     }
 
-    private func createData() -> (questions: [Question<String>], options: [Question<String>: [String]], correctAnswers: [Question<String>: [String]]) {
+    private func createData() -> (questions: [Question<String>], options: [Question<String>: [String]], correctAnswers: [Question<String>: Set<String>]) {
         let question1 = Question.singleAnswer("Who said \"Winter is coming\" for the first time in Game of Thrones?")
         let option1 = "Maester Luwin"
         let option2 = "John Snow"
@@ -38,11 +38,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let option7 = "Meera Reed"
         let option8 = "Jorah Mormont"
 
-        let options = [question1: [option1, option2, option3, option4],
-                       question2: [option5, option6, option7, option8]]
-
         let questions = [question1, question2]
-        let correctAnswers = [question1: [option4], question2: [option7, option8]]
+        let options: [Question<String>: [String]] = [question1: [option1, option2, option3, option4],
+                                    question2: [option5, option6, option7, option8]]
+        let correctAnswers: [Question<String>: Set<String>] = [question1: [option4], question2: [option7, option8]]
 
         return (questions, options, correctAnswers)
     }

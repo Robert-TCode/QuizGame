@@ -77,18 +77,18 @@ class iOSViewControllerFactoryTests: XCTestCase {
 
     // MARK: Helpers
 
-    private func makeSUT(options: Dictionary<Question<String>, [String]> = [:], correctAnswers: Dictionary<Question<String>, [String]> = [:]) -> iOSViewControllerFactory {
+    private func makeSUT(options: Dictionary<Question<String>, [String]> = [:], correctAnswers: Dictionary<Question<String>, Set<String>> = [:]) -> iOSViewControllerFactory {
         return iOSViewControllerFactory(questions: [singleAnswerQuestion, multipleAnswerQuestion], options: options, correctAnswers: correctAnswers)
     }
 
-    private func makeQuestionViewController(question: Question<String> = Question.singleAnswer(""), correctAnswers: Dictionary<Question<String>, [String]> = [:]) -> QuestionViewController {
+    private func makeQuestionViewController(question: Question<String> = Question.singleAnswer(""), correctAnswers: Dictionary<Question<String>, Set<String>> = [:]) -> QuestionViewController {
         return makeSUT(options: [question: options], correctAnswers: correctAnswers).questionViewController(for: question) { _ in } as! QuestionViewController
     }
 
     private func makeResults() -> (controller: ResultsViewController, presenter: ResultsPresenter) {
         let questions = [singleAnswerQuestion, multipleAnswerQuestion]
-        let userAnswers = [singleAnswerQuestion: ["A1"], multipleAnswerQuestion: ["A1", "A2"]]
-        let correctAnswers = [singleAnswerQuestion: ["A1"], multipleAnswerQuestion: ["A1", "A2"]]
+        let userAnswers = [singleAnswerQuestion: Set(["A1"]), multipleAnswerQuestion: Set(["A1", "A2"])]
+        let correctAnswers = [singleAnswerQuestion: Set(["A1"]), multipleAnswerQuestion: Set(["A1", "A2"])]
 
         let sut = makeSUT(correctAnswers: correctAnswers)
         let result = Result(answers: userAnswers, score: 2)
