@@ -1,6 +1,6 @@
 ## QuizGame
 
-A simple iOS app developed following TDD practices and with a focus on the system architecture.
+iOS app developed following TDD practices and with a focus on the system architecture.
 
 The idea of the app is a simple quiz game with single or multiple answer questions.
 At the end the score and a summary of the correct and wrong aswers is presented.
