@@ -13,7 +13,9 @@ The ideal was having as less dependencies as possible between modules so they ca
 `QEngine` is a separate framework and can be found [here](https://github.com/Robert-TCode/QuizEngine).
 
 Protocols and generics played an important part in achieving the desired result.
+
 There is only one singleton in the app: `NetworkReachability`.
+
 As UI design pattern was used MVC.
 
 The diagram containing the architecture with dependencies and creations:
@@ -23,6 +25,7 @@ The diagram containing the architecture with dependencies and creations:
 ## TDD
 
 Every new module was created following TDD, the accent being more on unit tests rather than integration tests.
+
 The app has a ~95% test coverage.
 
 ## Upgrades
