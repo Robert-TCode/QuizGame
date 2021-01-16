@@ -16,6 +16,12 @@
 		AA2EA90825AE66B200A0DCCD /* ResultsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA90725AE66B200A0DCCD /* ResultsPresenter.swift */; };
 		AA2EA90B25AF940D00A0DCCD /* QuestionPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA90A25AF940D00A0DCCD /* QuestionPresenterTests.swift */; };
 		AA2EA90E25AF94FC00A0DCCD /* QuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA90D25AF94FC00A0DCCD /* QuestionPresenter.swift */; };
+		AA2EA93725B30BDA00A0DCCD /* DatabaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA93625B30BDA00A0DCCD /* DatabaseManagerTests.swift */; };
+		AA2EA93C25B3105D00A0DCCD /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA93B25B3105D00A0DCCD /* DatabaseManager.swift */; };
+		AA2EA94125B3169600A0DCCD /* GameFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA94025B3169600A0DCCD /* GameFetching.swift */; };
+		AA2EA94425B316C400A0DCCD /* PersistenceDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA94325B316C400A0DCCD /* PersistenceDatabase.swift */; };
+		AA2EA94825B31F0C00A0DCCD /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA94725B31F0C00A0DCCD /* NetworkReachability.swift */; };
+		AA2EA94C25B31FBF00A0DCCD /* PersistenceDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EA94B25B31FBF00A0DCCD /* PersistenceDatabaseTests.swift */; };
 		AA7D9DAB25AA885800574B0C /* NavigationControllerRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7D9DAA25AA885800574B0C /* NavigationControllerRouterTests.swift */; };
 		AA7D9DB525AB2E7300574B0C /* NavigationControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7D9DB425AB2E7300574B0C /* NavigationControllerRouter.swift */; };
 		AAB8A9A8259C030600A0E20E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB8A9A7259C030600A0E20E /* AppDelegate.swift */; };
@@ -66,6 +72,12 @@
 		AA2EA90725AE66B200A0DCCD /* ResultsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPresenter.swift; sourceTree = "<group>"; };
 		AA2EA90A25AF940D00A0DCCD /* QuestionPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresenterTests.swift; sourceTree = "<group>"; };
 		AA2EA90D25AF94FC00A0DCCD /* QuestionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresenter.swift; sourceTree = "<group>"; };
+		AA2EA93625B30BDA00A0DCCD /* DatabaseManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManagerTests.swift; sourceTree = "<group>"; };
+		AA2EA93B25B3105D00A0DCCD /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		AA2EA94025B3169600A0DCCD /* GameFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFetching.swift; sourceTree = "<group>"; };
+		AA2EA94325B316C400A0DCCD /* PersistenceDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceDatabase.swift; sourceTree = "<group>"; };
+		AA2EA94725B31F0C00A0DCCD /* NetworkReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
+		AA2EA94B25B31FBF00A0DCCD /* PersistenceDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceDatabaseTests.swift; sourceTree = "<group>"; };
 		AA7D9DAA25AA885800574B0C /* NavigationControllerRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerRouterTests.swift; sourceTree = "<group>"; };
 		AA7D9DB425AB2E7300574B0C /* NavigationControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerRouter.swift; sourceTree = "<group>"; };
 		AAB8A9A4259C030600A0E20E /* QuizGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,7 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				AAB8A9B0259C030800A0E20E /* Assets.xcassets */,
-				AAB8A9B2259C030800A0E20E /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -146,8 +157,136 @@
 			children = (
 				AAB8A9A7259C030600A0E20E /* AppDelegate.swift */,
 				AAB8A9A9259C030600A0E20E /* SceneDelegate.swift */,
+				AA2EA90025AD0BE200A0DCCD /* iOSViewControllerFactory.swift */,
+				AAB8A9B5259C030800A0E20E /* Info.plist */,
+				AA2EA8F625ABB45A00A0DCCD /* Resources */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		AA2EA92625B307AC00A0DCCD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AA2EA92825B3081E00A0DCCD /* Launch */,
+				AA2EA8F425ABB44200A0DCCD /* ViewControllers */,
+				AA2EA8F225ABB43700A0DCCD /* Cells */,
+				AA2EA8F025ABB42C00A0DCCD /* Extensions */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		AA2EA92825B3081E00A0DCCD /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				AAB8A9B2259C030800A0E20E /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		AA2EA92925B3085500A0DCCD /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				AA2EA92B25B3089800A0DCCD /* Results */,
+				AA2EA92A25B3088E00A0DCCD /* Question */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		AA2EA92A25B3088E00A0DCCD /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				AA2EA90D25AF94FC00A0DCCD /* QuestionPresenter.swift */,
+			);
+			path = Question;
+			sourceTree = "<group>";
+		};
+		AA2EA92B25B3089800A0DCCD /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				AAB8A9FF259D3A0500A0E20E /* PresentableAnswer.swift */,
+				AA2EA90725AE66B200A0DCCD /* ResultsPresenter.swift */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
+		AA2EA92C25B308AD00A0DCCD /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				AA7D9DB425AB2E7300574B0C /* NavigationControllerRouter.swift */,
+				AA2EA8F925AD0A5D00A0DCCD /* ViewControllerFactory.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		AA2EA92D25B308D200A0DCCD /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AA2EA8FC25AD0ACF00A0DCCD /* iOSViewControllerFactoryTests.swift */,
+				AAB8A9C0259C030800A0E20E /* Info.plist */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		AA2EA92E25B308D800A0DCCD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AAB8A9E8259D22E800A0E20E /* ResultsViewControllerTests.swift */,
+				AA2EA93125B3091700A0DCCD /* Helpers */,
+				AAB8A9BE259C030800A0E20E /* QuestionViewControllerTests.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		AA2EA92F25B308DE00A0DCCD /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				AA7D9DAA25AA885800574B0C /* NavigationControllerRouterTests.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		AA2EA93025B308E700A0DCCD /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				AA2EA90425AE64ED00A0DCCD /* ResultsPresenterTests.swift */,
+				AA2EA90A25AF940D00A0DCCD /* QuestionPresenterTests.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		AA2EA93125B3091700A0DCCD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AAB8A9F2259D2C2700A0E20E /* TableViewHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		AA2EA93525B30BB900A0DCCD /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				AA2EA93625B30BDA00A0DCCD /* DatabaseManagerTests.swift */,
+				AA2EA94B25B31FBF00A0DCCD /* PersistenceDatabaseTests.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		AA2EA93E25B3164A00A0DCCD /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				AA2EA93B25B3105D00A0DCCD /* DatabaseManager.swift */,
+				AA2EA94025B3169600A0DCCD /* GameFetching.swift */,
+				AA2EA94325B316C400A0DCCD /* PersistenceDatabase.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		AA2EA94625B31EF200A0DCCD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AA2EA94725B31F0C00A0DCCD /* NetworkReachability.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		AA7D9DA525AA87EF00574B0C /* Frameworks */ = {
@@ -180,18 +319,12 @@
 		AAB8A9A6259C030600A0E20E /* QuizGame */ = {
 			isa = PBXGroup;
 			children = (
+				AA2EA92C25B308AD00A0DCCD /* Routing */,
+				AA2EA92925B3085500A0DCCD /* Presentation */,
+				AA2EA92625B307AC00A0DCCD /* UI */,
 				AA2EA8F725ABB46200A0DCCD /* Main */,
-				AA2EA8F625ABB45A00A0DCCD /* Resources */,
-				AAB8A9B5259C030800A0E20E /* Info.plist */,
-				AA2EA8F425ABB44200A0DCCD /* ViewControllers */,
-				AA7D9DB425AB2E7300574B0C /* NavigationControllerRouter.swift */,
-				AA2EA8F225ABB43700A0DCCD /* Cells */,
-				AAB8A9FF259D3A0500A0E20E /* PresentableAnswer.swift */,
-				AA2EA90725AE66B200A0DCCD /* ResultsPresenter.swift */,
-				AA2EA90D25AF94FC00A0DCCD /* QuestionPresenter.swift */,
-				AA2EA90025AD0BE200A0DCCD /* iOSViewControllerFactory.swift */,
-				AA2EA8F925AD0A5D00A0DCCD /* ViewControllerFactory.swift */,
-				AA2EA8F025ABB42C00A0DCCD /* Extensions */,
+				AA2EA93E25B3164A00A0DCCD /* Database */,
+				AA2EA94625B31EF200A0DCCD /* Network */,
 			);
 			path = QuizGame;
 			sourceTree = "<group>";
@@ -199,14 +332,11 @@
 		AAB8A9BD259C030800A0E20E /* QuizGameTests */ = {
 			isa = PBXGroup;
 			children = (
-				AAB8A9BE259C030800A0E20E /* QuestionViewControllerTests.swift */,
-				AA7D9DAA25AA885800574B0C /* NavigationControllerRouterTests.swift */,
-				AA2EA90425AE64ED00A0DCCD /* ResultsPresenterTests.swift */,
-				AA2EA90A25AF940D00A0DCCD /* QuestionPresenterTests.swift */,
-				AA2EA8FC25AD0ACF00A0DCCD /* iOSViewControllerFactoryTests.swift */,
-				AAB8A9E8259D22E800A0E20E /* ResultsViewControllerTests.swift */,
-				AAB8A9F2259D2C2700A0E20E /* TableViewHelpers.swift */,
-				AAB8A9C0259C030800A0E20E /* Info.plist */,
+				AA2EA93525B30BB900A0DCCD /* Database */,
+				AA2EA93025B308E700A0DCCD /* Presentation */,
+				AA2EA92F25B308DE00A0DCCD /* Routing */,
+				AA2EA92E25B308D800A0DCCD /* UI */,
+				AA2EA92D25B308D200A0DCCD /* Main */,
 			);
 			path = QuizGameTests;
 			sourceTree = "<group>";
@@ -311,18 +441,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA2EA94125B3169600A0DCCD /* GameFetching.swift in Sources */,
 				AAB8A9A8259C030600A0E20E /* AppDelegate.swift in Sources */,
 				AAB8A9FB259D39C300A0E20E /* UITableViewExtension.swift in Sources */,
 				AA2EA90825AE66B200A0DCCD /* ResultsPresenter.swift in Sources */,
 				AAB8AA05259D3A1F00A0E20E /* CorrectAnswerCell.swift in Sources */,
 				AAB8A9AA259C030600A0E20E /* SceneDelegate.swift in Sources */,
 				AAB8AA00259D3A0500A0E20E /* PresentableAnswer.swift in Sources */,
+				AA2EA93C25B3105D00A0DCCD /* DatabaseManager.swift in Sources */,
 				AAB8AA0A259D3A3A00A0E20E /* WrongAnswerCell.swift in Sources */,
 				AA2EA90E25AF94FC00A0DCCD /* QuestionPresenter.swift in Sources */,
 				AA2EA90125AD0BE200A0DCCD /* iOSViewControllerFactory.swift in Sources */,
 				AA7D9DB525AB2E7300574B0C /* NavigationControllerRouter.swift in Sources */,
 				AAB8A9E4259C043000A0E20E /* QuestionViewController.swift in Sources */,
 				AAB8A9EE259D238A00A0E20E /* ResultsViewController.swift in Sources */,
+				AA2EA94825B31F0C00A0DCCD /* NetworkReachability.swift in Sources */,
+				AA2EA94425B316C400A0DCCD /* PersistenceDatabase.swift in Sources */,
 				AA2EA8FA25AD0A5D00A0DCCD /* ViewControllerFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,10 +467,12 @@
 			files = (
 				AA7D9DAB25AA885800574B0C /* NavigationControllerRouterTests.swift in Sources */,
 				AA2EA90B25AF940D00A0DCCD /* QuestionPresenterTests.swift in Sources */,
+				AA2EA94C25B31FBF00A0DCCD /* PersistenceDatabaseTests.swift in Sources */,
 				AAB8A9BF259C030800A0E20E /* QuestionViewControllerTests.swift in Sources */,
 				AA2EA8FD25AD0ACF00A0DCCD /* iOSViewControllerFactoryTests.swift in Sources */,
 				AAB8A9F3259D2C2700A0E20E /* TableViewHelpers.swift in Sources */,
 				AA2EA90525AE64ED00A0DCCD /* ResultsPresenterTests.swift in Sources */,
+				AA2EA93725B30BDA00A0DCCD /* DatabaseManagerTests.swift in Sources */,
 				AAB8A9E9259D22E800A0E20E /* ResultsViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,7 +622,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 25258ALHUD;
-				INFOPLIST_FILE = QuizGame/Info.plist;
+				INFOPLIST_FILE = QuizGame/Main/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -505,7 +641,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 25258ALHUD;
-				INFOPLIST_FILE = QuizGame/Info.plist;
+				INFOPLIST_FILE = QuizGame/Main/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -524,7 +660,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 25258ALHUD;
-				INFOPLIST_FILE = QuizGameTests/Info.plist;
+				INFOPLIST_FILE = QuizGameTests/Main/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -546,7 +682,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 25258ALHUD;
-				INFOPLIST_FILE = QuizGameTests/Info.plist;
+				INFOPLIST_FILE = QuizGameTests/Main/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

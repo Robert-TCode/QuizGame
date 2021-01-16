@@ -17,33 +17,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
 
-        let database = createData()
-        let factory = iOSViewControllerFactory(questions: database.questions, options: database.options, correctAnswers: database.correctAnswers)
-        let router = NavigationControllerRouter(navigationController, factory: factory)
+        let localDatabase = PersistenceDatabase()
+        let databaseManager = DatabaseManager(persistentDatabase: localDatabase)
+ 
+        // TODO Present a loader initally in navigationController
+        // in the compeltion, present the real data
+        databaseManager.fetchGameDataSet { (questions, options, correctAnswers) in
+            let factory = iOSViewControllerFactory(questions: questions, options: options, correctAnswers: correctAnswers)
+            let router = NavigationControllerRouter(navigationController, factory: factory)
 
-        game = startGame(questions: database.questions, router: router, correctAnswers: database.correctAnswers)
-    }
-
-    private func createData() -> (questions: [Question<String>], options: [Question<String>: [String]], correctAnswers: [Question<String>: Set<String>]) {
-        let question1 = Question.singleAnswer("Who said \"Winter is coming\" for the first time in Game of Thrones?")
-        let option1 = "Maester Luwin"
-        let option2 = "John Snow"
-        let option3 = "Robb Stark"
-        let option4 = "Eddard Stark"
-
-
-        let question2 = Question.multipleAnswer("Who went beyond the Wall in Game of Thrones?")
-        let option5 = "Randyll Tarly"
-        let option6 = "Tyrion Lannister"
-        let option7 = "Meera Reed"
-        let option8 = "Jorah Mormont"
-
-        let questions = [question1, question2]
-        let options: [Question<String>: [String]] = [question1: [option1, option2, option3, option4],
-                                    question2: [option5, option6, option7, option8]]
-        let correctAnswers: [Question<String>: Set<String>] = [question1: [option4], question2: [option7, option8]]
-
-        return (questions, options, correctAnswers)
+            self.game = startGame(questions: questions, router: router, correctAnswers: correctAnswers)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) { }
